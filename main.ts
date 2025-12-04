@@ -5,7 +5,7 @@ async function main() {
     try {
         const plate = await Input.readVariables("Ingrese la placa (Ej: PBX-1234): ");
         const date = await Input.readVariables("Ingrese la fecha (YYYY-MM-DD): ");
-        const time = await Input.readVariables("Ingrese la hora (HH:mm): ");
+        const time = await Input.readVariables("Ingrese la hora en formato 24 horas (HH:mm): ");
 
         const vehiculo = new Vehiculo(plate, date, time);
         const puedeCircular = vehiculo.getPicoyPlaca();
