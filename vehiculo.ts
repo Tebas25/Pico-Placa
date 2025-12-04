@@ -46,19 +46,21 @@ export class Vehiculo {
         if(checkDigits == undefined){
             console.log("El dia seleccionado es fin de semana. Sin restricción")
         }else {
+            let count = 0;
             if (lastDigit == checkDigits[0] || lastDigit == checkDigits[1]){
                 for(let i=0 ; i<restristedTime.length; i+=2) {
                     if(this.isTimeRestriction() >= restristedTime[i]! && this.isTimeRestriction() <= restristedTime[i+1]!){
-                        console.log("El vehiculo tiene pico y placa en la hora dada. Prohibido circular");
-                    }else{
-                        console.log("El vehiculo tiene pico y placa pero no tiene restricción de circulación por la hora ingresada")
+                        count ++
                     }
+                }
+                if(count > 0){
+                    console.log("El vehiculo tiene restricción de circulación por la hora ingresada")
+                }else{ 
+                    console.log("El vehiculo tiene restricción, pero puede circular por la hora indicada.")
                 }
             }else{
                 console.log("El vehiculo no tiene pico y placa en ese día")
             }
         }
-
-
     }
 }
